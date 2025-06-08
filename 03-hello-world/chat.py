@@ -1,7 +1,7 @@
 from google import genai
 from google.genai import types
 
-client = genai.Client(api_key="AIzaSyDhD8Uvne7AFx1a44FxPLD6WVND1FuRWF8")
+client = genai.Client(api_key="your api key")
 
 # Zero_shot prompting = the model is given a direct question or task....
 

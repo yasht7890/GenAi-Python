@@ -1,7 +1,7 @@
 from google import genai
 from google.genai import types
 
-client = genai.Client(api_key="AIzaSyDhD8Uvne7AFx1a44FxPLD6WVND1FuRWF8")
+client = genai.Client(api_key="your api key")
 
 # Persona prompting = The model is provided with a few examples before asking it to generate a response.
 user_query = input("🔍 Enter your query: ")

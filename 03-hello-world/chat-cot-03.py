@@ -1,7 +1,7 @@
 from google import genai
 from google.genai import types
 
-client = genai.Client(api_key="AIzaSyDhD8Uvne7AFx1a44FxPLD6WVND1FuRWF8")
+client = genai.Client(api_key="your api key")
 
 # Chain Of Thought: The model is encouraged to break down reasoning step by step before arriving at an answer.
 user_query = input("🔍 Enter your query: ")
