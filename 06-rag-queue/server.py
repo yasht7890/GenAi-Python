@@ -15,5 +15,5 @@ def chat(
     #put query in queue
     job = queue.enqueue(process_query,query)
     #tell user your query is queued
-    return {"statuc":'queued',"job_id":job.id}
+    return {"status":'queued',"job_id":job.id}
     
