@@ -1,4 +1,10 @@
-.env
-.venv
-.git
-venv
+# Ignore virtual environment
+venv/
+.venv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+
+.env 
