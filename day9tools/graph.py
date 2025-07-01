@@ -23,7 +23,12 @@ def get_weather(city: str):
     
     return "Something went wrong"
 
-tools = [get_weather]
+@tool()
+def add_two_numbers(a:int,b:int):
+    """This tool adds two integer numbers"""
+    return a+b
+
+tools = [get_weather,add_two_numbers]
 
 class State(TypedDict):
     messages: Annotated[list,add_messages]
@@ -35,7 +40,7 @@ def chatbot(state: State):
     message = llm_with_tools.invoke(state["messages"])
     return {"messages":[message]}
 
-tools_node = ToolNode(tools=[get_weather])
+tools_node = ToolNode(tools=tools)
 
 graph_builder = StateGraph(State)
 
@@ -55,14 +60,15 @@ graph = graph_builder.compile()
 
 
 def main():
-    user_query = input("> ")
-    
-    
-    state = State(
-        messages = [{"role" : "user", "content" : user_query}]
-    )
-    for event in graph.stream(state, stream_mode="values"):
-        if "messages" in event:
-            event["messages"][-1].pretty_print()
+    while True:
+        user_query = input("> ")
+        
+        
+        state = State(
+            messages = [{"role" : "user", "content" : user_query}]
+        )
+        for event in graph.stream(state, stream_mode="values"):
+            if "messages" in event:
+                event["messages"][-1].pretty_print()
     
 main()
